@@ -40,8 +40,14 @@ function generateButtons() {
     document.getElementById('keyboard').innerHTML = buttonsHTML;
 }
 
+function guessedWord() {
+    wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+
+    document.getElementById('wordSpotlight').innerHTML = wordStatus;
+}
 
 document.getElementById('maxWrong').innerHTML = maxWrong;
 
 randomWord();
 generateButtons();
+guessedWord();
