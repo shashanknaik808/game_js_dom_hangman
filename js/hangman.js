@@ -55,7 +55,15 @@ function handleGuess(chosenLetter) {
     if (answer.indexOf(chosenLetter) >= 0) {
       guessedWord();
     }
+    else if (answer.indexOf(chosenLetter) === -1) {
+        mistakes++;
+        updateMistakes();
+    }
 }
+
+function updateMistakes() {
+    document.getElementById('mistakes').innerHTML = mistakes;
+  }
 
 document.getElementById('maxWrong').innerHTML = maxWrong;
 
