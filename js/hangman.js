@@ -44,7 +44,7 @@ function handleGuess(chosenLetter) {
     guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
     document.getElementById(chosenLetter).setAttribute('disabled', true);
 
-    alert(answer);
+    // alert(answer);
 
     if (answer.indexOf(chosenLetter) >= 0) {
         guessedWord();
@@ -78,6 +78,17 @@ function guessedWord() {
 
 function updateMistakes() {
     document.getElementById('mistakes').innerHTML = mistakes;
+}
+
+function reset() {
+    mistakes = 0;
+    guessed = [];
+    document.getElementById('hangmanPic').src = './images/0.jpg';
+
+    randomWord();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
 }
 
 document.getElementById('maxWrong').innerHTML = maxWrong;
