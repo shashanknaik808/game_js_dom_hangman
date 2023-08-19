@@ -54,8 +54,14 @@ function handleGuess(chosenLetter) {
         mistakes++;
         updateMistakes();
         checkIfGameLost();
+        updateHangmanPicture();
     }
 }
+
+function updateHangmanPicture() {
+    document.getElementById('hangmanPic').src = './images/' + mistakes + '.jpg';
+}
+
 
 function checkIfGameWon() {
     if (wordStatus === answer) {
